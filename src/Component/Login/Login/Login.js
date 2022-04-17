@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import '../CSS/Form.css'
 
 
 
@@ -42,7 +42,7 @@ const handleResetPasword = async()=>{
   }
 }
     return (
-        <div className='register-from'>
+        <div className='form-container'>
             <h1>Please Login</h1>
             <form onSubmit={handleSubmit}>
             <input ref={emailRef} type="email" name="email" id="" placeholder='Your Email' required />

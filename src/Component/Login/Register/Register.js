@@ -28,7 +28,7 @@ const Register = () => {
       navigate('/home')
     }
     return (
-        <div className='register-from'>
+        <div className='form-container'>
             <h3>Please Register</h3>
             <form onSubmit={handleSubmit}>
             <input type="text" name="name" id="" placeholder='Your Name' />
