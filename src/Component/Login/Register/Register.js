@@ -41,7 +41,7 @@ const Register = () => {
             <input disabled={!agree}
              className='btn btn-primary d-block w-50 mx-auto' type="submit" value="Registar" />
             </form>
-            <p>You are New Genius car ? <Link to='/login' className='text-warning pe-auto text-decoration-none' >Please Login</Link></p>
+            <p>You are New The Traveler ? <Link to='/login' className='text-warning pe-auto text-decoration-none' >Please Login</Link></p>
            
         </div>
     );

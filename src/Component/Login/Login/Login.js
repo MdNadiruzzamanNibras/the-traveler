@@ -5,6 +5,8 @@ import auth from '../../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../CSS/Form.css'
+import Loading from '../../Shared/Loading/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 
@@ -22,6 +24,15 @@ const [
 ] = useSignInWithEmailAndPassword(auth);
 if (user) {
   navigate(from, { replace: true });
+}
+if(loading){
+  return <Loading></Loading>
+}
+let errorElement;
+if (error) {
+ 
+    errorElement = <div className='text-danger'>Error: {error?.message}</div>
+ 
 }
 const handleSubmit= event=>{
     event.preventDefault()
@@ -49,10 +60,11 @@ const handleResetPasword = async()=>{
             <input ref={passwordRef} type="password" name="password" id="" placeholder='Password' required/>
             <input 
              className='btn btn-primary d-block w-50 mx-auto' type="submit" value="Login" />
+            {errorElement}
              <ToastContainer/>
             </form>
-            p
-            <p>New to Genius Car? <Link to="/register" className='text-primary pe-auto text-decoration-none' onClick={registerNavigate}>Please Register</Link> </p>
+            <SocialLogin></SocialLogin>
+            <p>New to The Traveler? <Link to="/register" className='text-primary pe-auto text-decoration-none' onClick={registerNavigate}>Please Register</Link> </p>
             <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={handleResetPasword}>Reset Password</button> </p>
         </div>
     );

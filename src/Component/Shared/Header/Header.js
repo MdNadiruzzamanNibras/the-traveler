@@ -18,7 +18,7 @@ const hanleSignOut = ()=>{
            <Navbar collapseOnSelect expand="lg" sticky='top' bg='info'>
                 <Container>
                     <Navbar.Brand as={Link} to="/">
-                       <h1>the</h1>
+                       <h1>the Traveler</h1>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
