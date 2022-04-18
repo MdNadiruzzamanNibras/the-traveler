@@ -12,7 +12,11 @@
     margin-bottom: 20px;
     border: .5px solid rgb(246, 236, 236);
     border-radius: 50px;
-    background: #efe6e6;
+    background: #ede5e5;
     box-shadow:  32px 32px 63px #625e5e,
                  -32px -32px 63px #ffffff;
+}
+
+.checkout-btn{
+    background-color:#e8cdcd ;
 }
