@@ -10,8 +10,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 
-const Login = () => {const emailRef = useRef('')
-const passwordRef=useRef('')
+const Login = () => {
 const navigate = useNavigate()
 const location = useLocation()
 const from = location.state?.from?.pathname || "/";
@@ -36,15 +35,15 @@ if (error) {
 }
 const handleSubmit= event=>{
     event.preventDefault()
-    const email = emailRef.current.value 
-    const password = passwordRef.current.value 
+    const email= event.target.email.value;
+    const password = event.target.password.value;
     signInWithEmailAndPassword(email, password)
 }
-const registerNavigate= event=>{
+const registerNavigate= ()=>{
     navigate('/register')
 }
-const handleResetPasword = async()=>{
-  const email = emailRef.current.value 
+const handleResetPasword = async(event)=>{
+  const email =event.target.email.value;
   if(email)
    {await sendPasswordResetEmail(email);
   toast('Sent email');}
@@ -56,8 +55,9 @@ const handleResetPasword = async()=>{
         <div className='form-container'>
             <h1>Please Login</h1>
             <form onSubmit={handleSubmit}>
-            <input ref={emailRef} type="email" name="email" id="" placeholder='Your Email' required />
-            <input ref={passwordRef} type="password" name="password" id="" placeholder='Password' required/>
+            <input type="email" name="email" id="" placeholder='Your Email' required />
+
+            <input type="password" name="password" id="" placeholder='Password' required/>
             <input 
              className='btn btn-primary d-block w-50 mx-auto' type="submit" value="Login" />
             {errorElement}

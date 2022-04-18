@@ -18,5 +18,9 @@
 }
 
 .checkout-btn{
+    padding: 10px 40px;
     background-color:#e8cdcd ;
+    border-radius: 50px;
+    display: block;
+    margin: 2px auto;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Blogs = () => {
+    
     return (
         <div className='w-50 mx-auto my-5'>
             <div className="my-3">
@@ -11,7 +12,8 @@ const Blogs = () => {
             </div>
             <div>
                 <h1>Why are you using firebase? What other options do you have to implement authentication?</h1>
-                <p>First think google database security is very well. It real time dynamic data aceess time less then other alternative. This is hacks not more easy it's really tou</p>
+                <p>First think google database security is very well. It real time dynamic data aceess time less then other alternative. This is hacks not more easy it's really tough</p>
+                <p>There are the other options of firebase is Auth0, Passport,MongoDB ,JSON Web Token,Amazon Cognito etc.</p>
             </div>
         </div>
     );
