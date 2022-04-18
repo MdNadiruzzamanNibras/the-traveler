@@ -6,7 +6,7 @@ const Service = ({service}) => {
   const {img, name, description, price, id} =service
   const navigate = useNavigate()
   const handleNavigate =()=>{
-    navigate(`/service/${id}`)
+    navigate('/checkout')
   }
    
     return (
