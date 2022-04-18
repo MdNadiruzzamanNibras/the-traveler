@@ -15,6 +15,10 @@ const Blogs = () => {
                 <p>First think google database security is very well. It real time dynamic data aceess time less then other alternative. This is hacks not more easy it's really tough</p>
                 <p>There are the other options of firebase is Auth0, Passport,MongoDB ,JSON Web Token,Amazon Cognito etc.</p>
             </div>
+            <div>
+                <h1> What other services does firebase provide other than authentication</h1>
+                <p>Firebase most known for thier authentication. Except Firebase provide backend related service, software development kit and UI libiraries etc.</p>
+            </div>
         </div>
     );
 };
