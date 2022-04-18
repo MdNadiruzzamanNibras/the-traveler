@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import './Register.css'
+
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 const Register = () => {
     const [agree, setAgree] = useState(false)
         const navigate= useNavigate()
@@ -14,8 +15,17 @@ const Register = () => {
       ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
       if(user){
-         console.log(user, 'user')
+        navigate('/home')
       }
+      let errorElement;
+if (error) {
+ 
+    errorElement = <div className='text-danger'>Error: {error?.message}</div>
+ 
+}
+if(loading){
+    return <Loading></Loading>
+  }
     const handleSubmit = async (event)=>{
         event.preventDefault()
         const name = event.target.name.value;
@@ -24,7 +34,7 @@ const Register = () => {
        
       await createUserWithEmailAndPassword(email, password)
       await updateProfile({ displayName: name });
-      alert('Updated profile');
+     
       navigate('/home')
     }
     return (
@@ -37,10 +47,11 @@ const Register = () => {
             
             <input onClick={()=>setAgree(!agree)} type="checkbox" name="terms" id="terms" />
            
-            <label className={`ps-2 ${agree ? 'text-primary': 'text-danger'}`} htmlFor="terms"> Car Genius Terms and Condition</label>
+            <label className={`ps-2 ${agree ? 'text-primary': 'text-danger'}`} htmlFor="terms">The Traveler Terms and Condition</label>
             <input disabled={!agree}
              className='btn btn-primary d-block w-50 mx-auto' type="submit" value="Registar" />
             </form>
+            {errorElement}
             <p>You are New The Traveler ? <Link to='/login' className='text-warning pe-auto text-decoration-none' >Please Login</Link></p>
            
         </div>
