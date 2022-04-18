@@ -48,11 +48,11 @@ if(loading){
             <input onClick={()=>setAgree(!agree)} type="checkbox" name="terms" id="terms" />
            
             <label className={`ps-2 ${agree ? 'text-primary': 'text-danger'}`} htmlFor="terms">The Traveler Terms and Condition</label>
-            <input disabled={!agree}
-             className='btn btn-primary d-block w-50 mx-auto' type="submit" value="Registar" />
+            <button disabled={!agree}
+             className='form-btn' type="submit" >Registar</button>
             </form>
             {errorElement}
-            <p>You are New The Traveler ? <Link to='/login' className='text-warning pe-auto text-decoration-none' >Please Login</Link></p>
+            <p>You are New The Traveler ? <Link to='/login' className='text-primary pe-auto text-decoration-none' >Please Login</Link></p>
            
         </div>
     );

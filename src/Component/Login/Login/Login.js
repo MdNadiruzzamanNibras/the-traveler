@@ -10,7 +10,8 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 
-const Login = () => {
+const Login = () => {const emailRef = useRef('')
+const passwordRef=useRef('')
 const navigate = useNavigate()
 const location = useLocation()
 const from = location.state?.from?.pathname || "/";
@@ -35,15 +36,15 @@ if (error) {
 }
 const handleSubmit= event=>{
     event.preventDefault()
-    const email= event.target.email.value;
-    const password = event.target.password.value;
+    const email = emailRef.current.value 
+    const password = passwordRef.current.value 
     signInWithEmailAndPassword(email, password)
 }
-const registerNavigate= ()=>{
+const registerNavigate= event=>{
     navigate('/register')
 }
-const handleResetPasword = async(event)=>{
-  const email =event.target.email.value;
+const handleResetPasword = async()=>{
+  const email = emailRef.current.value 
   if(email)
    {await sendPasswordResetEmail(email);
   toast('Sent email');}
@@ -55,11 +56,9 @@ const handleResetPasword = async(event)=>{
         <div className='form-container'>
             <h1>Please Login</h1>
             <form onSubmit={handleSubmit}>
-            <input type="email" name="email" id="" placeholder='Your Email' required />
-
-            <input type="password" name="password" id="" placeholder='Password' required/>
-            <input 
-             className='btn btn-primary d-block w-50 mx-auto' type="submit" value="Login" />
+            <input ref={emailRef} type="email" name="email" id="" placeholder='Your Email' required />
+            <input ref={passwordRef} type="password" name="password" id="" placeholder='Password' required/>
+            <button className='form-btn'>Login</button>
             {errorElement}
              <ToastContainer/>
             </form>
