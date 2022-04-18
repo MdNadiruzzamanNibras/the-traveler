@@ -5,13 +5,17 @@ import Github from '../../../images/social icon/github.png'
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../Shared/Loading/Loading';
 
 const SocialLogin = () => {
     const navigate = useNavigate()
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    const [signInWithGithub, githubUser, githubLoading1, githubError] = useSignInWithGithub(auth);
+    const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
     const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
     let errorElement;
+    if(loading|| githubLoading||fbLoading){
+        return <Loading></Loading>
+    }
     if (error||githubError||fbError) {
        errorElement=(
           <div>
@@ -46,6 +50,7 @@ const SocialLogin = () => {
             >
                 <img  src={Github} alt="" />
                 </button>
+                {errorElement}
             </div>
         </div>
     );

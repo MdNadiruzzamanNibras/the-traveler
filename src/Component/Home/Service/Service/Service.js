@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './service.css'
 
 const Service = ({service}) => {
-  const {img, name, description, price, id} =service
+  const {img, name, description, price} =service
   const navigate = useNavigate()
   const handleNavigate =()=>{
     navigate('/checkout')
@@ -15,7 +15,7 @@ const Service = ({service}) => {
       <h2>{name}</h2>
       <h6>Price: ${price}</h6>
       <p><small title={description}>{description.length >200 ? description.slice(0, 200): {description}}</small></p>
-      <button  onClick={()=>handleNavigate(id)}>book</button>
+      <button  onClick={handleNavigate}>book</button>
   </div>
       
     );

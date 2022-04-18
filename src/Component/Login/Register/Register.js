@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
 const Register = () => {
     const [agree, setAgree] = useState(false)
         const navigate= useNavigate()
@@ -51,6 +52,7 @@ if(loading){
             <button disabled={!agree}
              className='form-btn' type="submit" >Registar</button>
             </form>
+            <SocialLogin></SocialLogin>
             {errorElement}
             <p>You are New The Traveler ? <Link to='/login' className='text-primary pe-auto text-decoration-none' >Please Login</Link></p>
            
