@@ -1,0 +1,18 @@
+.checkout-container{
+    width: 30%;
+    margin: 200px auto;
+}
+
+.checkout-container input{
+  
+    display: block;
+    width: 80%;
+    height: 50px;
+    padding-left: 50px;
+    margin-bottom: 20px;
+    border: .5px solid rgb(246, 236, 236);
+    border-radius: 50px;
+    background: #efe6e6;
+    box-shadow:  32px 32px 63px #625e5e,
+                 -32px -32px 63px #ffffff;
+}

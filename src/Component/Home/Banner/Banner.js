@@ -3,7 +3,7 @@ import { Carousel } from 'react-bootstrap';
 
 import himalaya from '../../../images/banner/himalaya.jpg'
 import maldives from '../../../images/banner/Maldives.jpg'
-import coxBazar from '../../../images/banner/cox-bazar.jpg'
+import Kalahari from '../../../images/banner/Kalahari.jpg'
 
 const Banner = () => {
     const [index, setIndex] = useState(0);
@@ -41,7 +41,7 @@ const Banner = () => {
                 <img
                 style={{maxHeight:'700px'}}
                     className="d-block w-100"
-                    src={coxBazar}
+                    src={Kalahari}
                     alt="Third slide"
                 />
 

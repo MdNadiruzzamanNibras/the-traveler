@@ -9,10 +9,10 @@ import { useNavigate } from 'react-router-dom';
 const SocialLogin = () => {
     const navigate = useNavigate()
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
+    const [signInWithGithub, githubUser, githubLoading1, githubError] = useSignInWithGithub(auth);
     const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
     let errorElement;
-    if (error||error1||fbError) {
+    if (error||githubError||fbError) {
        errorElement=(
           <div>
             <p>Error: {error.message}</p>
@@ -20,7 +20,7 @@ const SocialLogin = () => {
         );
       }
 
-      if(user || user1||fbUser){
+      if(user ||githubUser ||fbUser){
           navigate('/home')
       }
     return (
@@ -31,19 +31,22 @@ const SocialLogin = () => {
                 <div style={{ height: '1px' }} className='bg-primary w-50'></div>
             </div>
             <p className='text-danger'>{errorElement}</p>
-            <button onClick={()=>signInWithGoogle()} className='btn btn-primary d-block mx-auto w-50 my-2'>
-                <img src={Google} alt="" />
-                <span className='px-2'>Google Sign In</span></button>
+            <div className='d-flex justify-content-center'>
+            <button className='btn btn-link' onClick={()=>signInWithGoogle()} >
+                <img  src={Google} alt="" />
+                </button>
             <button
-            onClick={()=>signInWithFacebook()}
-            className='btn btn-primary d-block mx-auto w-50 my-2'>
-                <img style={{ height:'30px', padding:'5px'}} src={Facebook} alt="" />
-                <span className='px-2'>Facebook Sign In</span></button>
+            className='btn btn-link'
+            onClick={()=>signInWithFacebook()}>
+                <img style={{ height:'35px', }} src={Facebook} alt="" />
+                </button>
             <button 
+            className='btn btn-link'
             onClick={()=>signInWithGithub()}
-            className='btn btn-primary d-block mx-auto w-50'>
+            >
                 <img  src={Github} alt="" />
-                <span className='px-2'>Github Sign In</span></button>
+                </button>
+            </div>
         </div>
     );
 };

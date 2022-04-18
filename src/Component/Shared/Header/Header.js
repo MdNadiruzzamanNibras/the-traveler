@@ -16,20 +16,20 @@ const hanleSignOut = ()=>{
 
     return (
         <>
-           <Navbar collapseOnSelect expand="lg" sticky='top' bg='info'>
+           <Navbar collapseOnSelect expand="lg" sticky='top' style={{ background:"#a4a4a4"}}>
                 <Container>
                     <Navbar.Brand  >
-                       <h1>the Traveler</h1>
+                       <h1 className='text-white '>the Traveler</h1>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link as={CustomLink} to="home#services">Services</Nav.Link>
-                            <Nav.Link href="home#experts">Experts</Nav.Link>
-                            
+                            <Nav.Link as={CustomLink} to="/checkout">Checkout</Nav.Link>
+                            <Nav.Link as={CustomLink} to="/about">About</Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link as={Link} to="about">About</Nav.Link>
+                            
                             {
                                 user ?
                                     <button className='btn btn-link text-white text-decoration-none' onClick={hanleSignOut}>sign out</button>
